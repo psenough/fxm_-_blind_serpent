@@ -1,0 +1,212 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Blind Serpent</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+		  font-family: myfont;
+		  src: url('font.ttf');
+		}
+		body {
+			background-color: black;
+			margin: 0px;
+			padding: 0px;
+			font-family: myfont;
+		}
+		#container {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			bottom: 0px;
+			right: 0px;
+		}
+		p {
+			color: white;
+			font-size: 1.2em;
+		}
+		
+		A 		{ color: #666666; /* text-decoration: none; */} 
+	A:link		{ color: #666666; text-decoration: underline; } 
+	A:visited	{ color: #666666; text-decoration: underline; } 
+	A:active	{ color: #666666;  } 
+	A:hover		{ color: #666666; text-decoration:underline; }
+	</style> 
+<script type="text/javascript">
+<!--
+var BrowserDetect = {
+	init: function () {
+		this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
+		this.version = this.searchVersion(navigator.userAgent)
+			|| this.searchVersion(navigator.appVersion)
+			|| "an unknown version";
+		this.OS = this.searchString(this.dataOS) || "an unknown OS";
+	},
+	searchString: function (data) {
+		for (var i=0;i<data.length;i++)	{
+			var dataString = data[i].string;
+			var dataProp = data[i].prop;
+			this.versionSearchString = data[i].versionSearch || data[i].identity;
+			if (dataString) {
+				if (dataString.indexOf(data[i].subString) != -1)
+					return data[i].identity;
+			}
+			else if (dataProp)
+				return data[i].identity;
+		}
+	},
+	searchVersion: function (dataString) {
+		var index = dataString.indexOf(this.versionSearchString);
+		if (index == -1) return;
+		return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
+	},
+	dataBrowser: [
+		{
+			string: navigator.userAgent,
+			subString: "Chrome",
+			identity: "Chrome"
+		},
+		{ 	string: navigator.userAgent,
+			subString: "OmniWeb",
+			versionSearch: "OmniWeb/",
+			identity: "OmniWeb"
+		},
+		{
+			string: navigator.vendor,
+			subString: "Apple",
+			identity: "Safari",
+			versionSearch: "Version"
+		},
+		{
+			prop: window.opera,
+			identity: "Opera"
+		},
+		{
+			string: navigator.vendor,
+			subString: "iCab",
+			identity: "iCab"
+		},
+		{
+			string: navigator.vendor,
+			subString: "KDE",
+			identity: "Konqueror"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "Firefox",
+			identity: "Firefox"
+		},
+		{
+			string: navigator.vendor,
+			subString: "Camino",
+			identity: "Camino"
+		},
+		{		// for newer Netscapes (6+)
+			string: navigator.userAgent,
+			subString: "Netscape",
+			identity: "Netscape"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "MSIE",
+			identity: "Explorer",
+			versionSearch: "MSIE"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "Gecko",
+			identity: "Mozilla",
+			versionSearch: "rv"
+		},
+		{ 		// for older Netscapes (4-)
+			string: navigator.userAgent,
+			subString: "Mozilla",
+			identity: "Netscape",
+			versionSearch: "Mozilla"
+		}
+	],
+	dataOS : [
+		{
+			string: navigator.platform,
+			subString: "Win",
+			identity: "Windows"
+		},
+		{
+			string: navigator.platform,
+			subString: "Mac",
+			identity: "Mac"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "iPhone",
+			identity: "iPhone/iPod"
+	    },
+		{
+			string: navigator.platform,
+			subString: "Linux",
+			identity: "Linux"
+		}
+	]
+
+};
+BrowserDetect.init();
+
+// -->
+</script>
+</head> 
+ 
+<body> 
+	<div id="container">
+			<div style="float: left;">
+				<img src="andre_coelho_gfx/astral_king1.jpg" />
+			</div>
+			<div style="text-align: center;">
+<p>Click <a href="demo.html">here</a> to start "Blind Serpent" by FXM<br /><br />a WebGL demo made in a week<br />for Mozilla Flame Party Demo Competition - June 2011</p>
+
+<p>A remix of <a href="http://pouet.net/prod.php?which=56996">"mkultra" by Bilotrip</a><br />
+(thanks to <a href="http://low.fi/~visy">Visy</a> for the framework and some help)</p>
+
+<p>Requires Mozilla Firefox 4 or Google Chrome 12<br />
+<script type="text/javascript">
+<!--
+
+function shouldWork() {
+	if ( ((BrowserDetect.browser == 'Chrome') && (BrowserDetect.version >= 12)) 
+	   || ((BrowserDetect.browser == 'Firefox') && (BrowserDetect.version >= 4)) ) return ', so it should work';
+	else return ', so it probably will not work';
+}
+
+function checkHeight() {
+	if (window.innerHeight < 820) return 'Please make sure your browser window has atleast 820 pixels height or some graphics might be cut.';
+	 else return '';
+}
+
+document.write('You seem to be using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS + shouldWork() + '<br />' + checkHeight());
+// -->
+</script>
+</p>
+
+<p>Soundtrack by Profan - "Sacrificing to the Serpent God"<br />
+<a href="http://enoughrecords.scene.org/?cat=enrmp227">released</a> at Enough Records Netlabel free for download. CDr and tape also available for purchase.<br />
+Original is 22 minutes long, had to edit it down for the demo, sorry that it ends suddenly.</p>
+
+<p>Illustrations by <a href="http://homemdopacote.wordpress.com/">André Coelho</a> of Profan.<br />
+Available for illustration and design services.</p>
+
+<p>Demo put together by <a href="http://tpolm.org/~ps">Filipe 'ps' Cruz</a> of TPOLM and Enough Records.<br />
+Available for web / mobile / interactive software development.</p>
+
+<p>Greetings to:<br />
+Bilotrip, TPOLM, MFX, Kewlers, Satori, Accession, Haujobb, Farbrausch, ASD and the other friendly demogroups that i'm probably forgetting right now.<br />
+Also greetings to the active Portuguese Demoscene, the Audiencia Zero Hack Labs folks, and everyone who supports the Netaudio scene.</p>
+
+<p><img src="cc_by_nc_sa.jpg"/></p>
+
+<p><a href="http://flattr.com/thing/315540/Blind-Serpent" target="_blank">
+<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></p>
+
+				</div>
+	</div>
+</body> 
+</html> 
