@@ -2374,6 +2374,23 @@
 		window.onload = init;
 	</script> 
 	<script type="text/javascript"> 
+	
+		function gup( name )
+		{
+		  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		  var regexS = "[\\?&]"+name+"=([^&#]*)";
+		  var regex = new RegExp( regexS );
+		  var results = regex.exec( window.location.href );
+		  if( results == null )
+			return "";
+		  else
+			return results[1];
+		}
+	
+		var lan = gup('lan');
+		
+		if (lan === "") lan = 'en'; 
+		
 		// part system global
 		var flag = new Array();
 		var fi = 0;
@@ -2384,7 +2401,7 @@
 			subtitles = function(e) {
 				r = $('span',e);
 				return r;
-			}($('#subtitle-text'));
+			}($('#subtitle-text-'+lan));
 		}
 		var timing = {"bindings": [
         	{"begin": 6950, "duration": 4700},
@@ -2527,10 +2544,16 @@
 		</div>
 
 		<!--<div id="timer">test</div>-->
-		<div id="overlay-img"><p><span><img src="andre_coelho_gfx/mao_cosmica_blog.jpg"></span> <span><img src="andre_coelho_gfx/1.jpg"></span> <span><img src="andre_coelho_gfx/2.jpg"></span> <span><img src="andre_coelho_gfx/3.jpg"></span> <span><img src="andre_coelho_gfx/4.jpg"></span> <span><img src="andre_coelho_gfx/5.jpg"></span> <span><img src="andre_coelho_gfx/6.jpg"></span> <span><img src="andre_coelho_gfx/7.jpg"></span> <span><img src="andre_coelho_gfx/8.jpg"></span> <span><img src="andre_coelho_gfx/9.jpg"></span> <span><img src="andre_coelho_gfx/10.jpg"></span> <span><img src="andre_coelho_gfx/11.jpg"></span> <span><img src="andre_coelho_gfx/12.jpg"></span> <span><img src="andre_coelho_gfx/deathmetal.jpg"></span> <span><img src="andre_coelho_gfx/3_m.jpg"></span> <span><img src="andre_coelho_gfx/flower.jpg"></span> <span><img src="andre_coelho_gfx/greenmansmall.jpg"></span> <span><img src="andre_coelho_gfx/5_m.jpg"></span> </p><br data-goto="#subtitle-text>p:first-child" /></div> 
+		<div id="overlay-img"><p><span><img src="andre_coelho_gfx/mao_cosmica_blog.jpg"></span> <span><img src="andre_coelho_gfx/1.jpg"></span> <span><img src="andre_coelho_gfx/2.jpg"></span> <span><img src="andre_coelho_gfx/3.jpg"></span> <span><img src="andre_coelho_gfx/4.jpg"></span> <span><img src="andre_coelho_gfx/5.jpg"></span> <span><img src="andre_coelho_gfx/6.jpg"></span> <span><img src="andre_coelho_gfx/7.jpg"></span> <span><img src="andre_coelho_gfx/8.jpg"></span> <span><img src="andre_coelho_gfx/9.jpg"></span> <span><img src="andre_coelho_gfx/10.jpg"></span> <span><img src="andre_coelho_gfx/11.jpg"></span> <span><img src="andre_coelho_gfx/12.jpg"></span> <span><img src="andre_coelho_gfx/deathmetal.jpg"></span> <span><img src="andre_coelho_gfx/3_m.jpg"></span> <span><img src="andre_coelho_gfx/flower.jpg"></span> <span><img src="andre_coelho_gfx/greenmansmall.jpg"></span> <span><img src="andre_coelho_gfx/5_m.jpg"></span> </p></div> 
 	
-		<p id="subtitle"><span>The legend is always the same.</span></p> 
-		<div id="subtitle-text"><p><span>The legend is always the same.</span> <span>The legend is always different.</span> <span></span> <span>Nine immortal kings live on top of the mountain;</span> <span>from the highest peak they direct our world.</span> <span>They hold the secret to the conquest of death.</span> <span>They are more than forty thousand years old.</span> <span>But they were once like ourselves -</span> <span>if others have succeeded conquering death,</span> <span>why must we accept it?</span> <span>I know where the immortals live,</span> <span>and how to obtain their secret.</span></p><br data-goto="#subtitle-text>p:first-child" /></div> 
+		<p id="subtitle"></p> 
+		<div id="subtitle-text-en"><p><span>The legend is always the same.</span> <span>The legend is always different.</span> <span></span> <span>Nine immortal kings live on top of the mountain;</span> <span>from the highest peak they direct our world.</span> <span>They hold the secret to the conquest of death.</span> <span>They are more than forty thousand years old.</span> <span>But they were once like ourselves -</span> <span>if others have succeeded conquering death,</span> <span>why must we accept it?</span> <span>I know where the immortals live,</span> <span>and how to obtain their secret.</span></p></div> 
+		<div id="subtitle-text-fr"><p><span>La légende est toujours la même.</span> <span>La légende est à chaque fois différente.</span> <span></span> <span>Neuf rois immortels à la cime de la montagne;</span> <span>du plus haut sommet, ils dirigent notre monde.</span> <span>Ils détiennent les secrets pour vaincre la mort.</span> <span>Ils vu passer plus de quatre millénaires.</span> <span>Mais ils furent autrefois nos semblables -</span> <span>si d'autres ont pu vaincre la mort,</span> <span>pourquoi devons nous l'accepter?</span> <span>Je sais où vivent les immortels,</span> <span>et comment obtenir leurs secrets.</span></p></div>
+		<div id="subtitle-text-pt"><p><span>A lenda é sempre a mesma.</span> <span>A lenda é sempre diferente.</span> <span></span> <span>Nove reis imortais vivem no topo da montanha;</span> <span>do mais alto pico, eles controlam o nosso mundo.</span> <span>Eles detêm o segredo da conquista da morte.</span> <span>Eles tem mais de quarenta mil anos.</span> <span>Mas foram outrora como nós -</span> <span>se outros conquistaram os segredos da morte,</span> <span>porque deveremos nós a aceitar?</span> <span>Eu sei onde vivem os imortais,</span> <span>e como obter os seus segredos.</span></p></div>
+		<div id="subtitle-text-es"><p><span>La leyenda es siempre la misma.</span> <span>La leyenda siempre es diferente.</span> <span></span> <span>Nueve reyes inmortales viven en lo cimo de la montaña;</span> <span>desde el pico más alto, dirigen nuestro mundo</span> <span>ellos tienen el secreto de la conquista de la muerte</span> <span>tienen más de cuarenta mil años</span> <span>Sin embargo, han sido como nosotros -</span> <span>si otros han logrado conquistar la muerte,</span> <span>¿Por qué debemos nosotros la aceptar?</span> <span>yo sé dónde viven los inmortales,</span> <span>y la forma de obtener sus secretos.</span></p></div>
+		<div id="subtitle-text-po"><p><span>Legendary</span> <span>Darkness!</span> <span></span> <span>Shrouding</span> <span>My soul!</span> <span></span> <span>Secret</span> <span>Sacrifice!</span> <span></span> <span>Blind</span> <span>Serpent!</span> <span></span></p></div>
+
+</div>
 	</div>
 
 	<audio id = "audio" src = "4_37_edit.ogg"></audio>

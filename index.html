@@ -154,6 +154,17 @@ BrowserDetect.init();
 
 // -->
 </script>
+<script type="text/javascript">
+	function launch() {
+		var dropdown = document.getElementById('select1');
+		if (dropdown) {
+			//alert('hello');
+			var index  = dropdown.selectedIndex;
+    		var value = dropdown.options[index].value;
+    		window.location.href = 'demo.html?lan='+value;
+		}
+	}
+</script>
 </head> 
  
 <body> 
@@ -162,7 +173,14 @@ BrowserDetect.init();
 				<img src="andre_coelho_gfx/astral_king1.jpg" />
 			</div>
 			<div style="text-align: center;">
-<p>Click <a href="demo.html">here</a> to start "Blind Serpent" by FXM<br /><br />a WebGL demo made in a week<br />for Mozilla Flame Party Demo Competition - June 2011</p>
+<p>"Blind Serpent" by FXM<br /><br />a WebGL demo made in a week<br />for Mozilla Flame Party Demo Competition - June 2011</p>
+
+<p><select name="select1" id="select1">
+<option value="en" selected>English</option>
+<option value="fr">French</option>
+<option value="pt">Portuguese</option>
+<option value="es">Spanish</option>
+</select><input type="button" value="Launch Demo!" onclick="launch()"/></p>
 
 <p>A remix of <a href="http://pouet.net/prod.php?which=56996">"mkultra" by Bilotrip</a><br />
 (thanks to <a href="http://low.fi/~visy">Visy</a> for the framework and some help)</p>
@@ -193,6 +211,8 @@ Original is 22 minutes long, had to edit it down for the demo, sorry that it end
 
 <p>Illustrations by <a href="http://homemdopacote.wordpress.com/">André Coelho</a> of Profan.<br />
 Available for illustration and design services.</p>
+
+<p>Subtitles French translation by <a href="http://myth-project.legtux.org/">Marjolaine 'Pinky' Vaucher</a>.</p>
 
 <p>Demo put together by <a href="http://tpolm.org/~ps">Filipe 'ps' Cruz</a> of TPOLM and Enough Records.<br />
 Available for web / mobile / interactive software development.</p>
