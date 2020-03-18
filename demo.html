@@ -67,11 +67,6 @@
 	<script id="shaderfs_skybox" type="x-shader/x-fragment">
 #ifdef GL_ES
 		precision highp float;
-		precision highp vec3;
-		precision highp mat3;
-		precision highp vec2;
-		precision highp mat2;
- 
 #endif
  		
 		uniform float time;
@@ -131,11 +126,6 @@
  
 #ifdef GL_ES
 		precision highp float;
-		precision highp vec3;
-		precision highp mat3;
-		precision highp vec2;
-		precision highp mat2;
- 
 #endif
  		
 		uniform float time;
@@ -378,11 +368,6 @@
 	<script id="shaderfs_convo" type="x-shader/x-fragment">
 #ifdef GL_ES
 		precision highp float;
-		precision highp vec3;
-		precision highp mat3;
-		precision highp vec2;
-		precision highp mat2;
- 
 #endif
 		#define KERNEL_SIZE 9
 
@@ -455,11 +440,9 @@
 	</script>
 
 	<script id="shaderfs_fsscene" type="x-shader/x-fragment"> 
+#ifdef GL_ES
 		precision highp float;
-		precision highp vec3;
-		precision highp mat3;
-		precision highp vec2;
-		precision highp mat2;
+#endif
  		
 		uniform float time;
 		uniform float beat;
@@ -493,11 +476,9 @@
 	</script> 
 	
 	<script id="shaderfs_blurdeformscene" type="x-shader/x-fragment"> 
-			precision highp float;
-			precision highp vec3;
-			precision highp mat3;
-			precision highp vec2;
-			precision highp mat2;
+#ifdef GL_ES
+		precision highp float;
+#endif
 			
 			float myTime;
 
@@ -550,11 +531,9 @@
 	</script> 
 
 	<script id="shaderfs_fractalscene" type="x-shader/x-fragment">
+#ifdef GL_ES
 		precision highp float;
-		precision highp vec3;
-		precision highp mat3;
-		precision highp vec2;
-		precision highp mat2;
+#endif
  		
 		uniform float time;
 		uniform float beat;
@@ -733,11 +712,9 @@
 	</script> 
  
 	<script id="shaderfs_curvescene" type="x-shader/x-fragment">
+		#ifdef GL_ES
 		precision highp float;
-		precision highp vec3;
-		precision highp mat3;
-		precision highp vec2;
-		precision highp mat2;
+		#endif
 
 		uniform float time;
 		uniform float width;
@@ -1141,7 +1118,8 @@
 	    	gl.compileShader(shader);
  
 	    	if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-	      		alert(gl.getShaderInfoLog(shader));
+				console.log(id);
+	      		console.log(gl.getShaderInfoLog(shader));
 	      		return null;
 	    	}
  		
@@ -1326,27 +1304,24 @@
 		function initTextures() {
 			spaceTexture = gl.createTexture();
 			spaceTexture.image = new Image();
-		    	spaceTexture.image.onload = function() {
-		    		handleLoadedTexture_space(spaceTexture)
-		    	}
- 
-		    	spaceTexture.image.src = "bilotrip_gfx/spacetexture.png";
- 
+			spaceTexture.image.onload = function() {
+				handleLoadedTexture_space(spaceTexture)
+			}
+			spaceTexture.image.src = "bilotrip_gfx/spacetexture.png";
+
 			letterTexture = gl.createTexture();
 			letterTexture.image = new Image();
-		    	letterTexture.image.onload = function() {
-		    		handleLoadedTexture_letter(letterTexture)
-		    	}
- 
-		    	letterTexture.image.src = "bilotrip_gfx/letters.png";
+			letterTexture.image.onload = function() {
+				handleLoadedTexture_letter(letterTexture)
+			}
+			letterTexture.image.src = "bilotrip_gfx/letters.png";
 
 			eyeTexture = gl.createTexture();
 			eyeTexture.image = new Image();
 			eyeTexture.image.onload = function() {
 				handleLoadedTexture_eye(eyeTexture)
 			} 
-
-		    	eyeTexture.image.src = "bilotrip_gfx/eye.png"
+	    	eyeTexture.image.src = "bilotrip_gfx/eye.png"
 
 			var i = 0;
 
@@ -1392,7 +1367,6 @@
 			skyboxTexture4.image.src = "bilotrip_gfx/newsky4.png";
 			skyboxTexture5.image.src = "bilotrip_gfx/newsky5.png";
 			skyboxTexture6.image.src = "bilotrip_gfx/newsky6.png";
-
 		}
  
 		  function handleLoadedTexture_space(texture) {
